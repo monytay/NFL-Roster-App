@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.nfl</groupId>
-	<artifactId>demo</artifactId>
+	<artifactId>NFL Roster App</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>NFL-Teams</name>
 	<description>Demo project for Spring Boot</description>
