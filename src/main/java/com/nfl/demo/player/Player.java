@@ -31,9 +31,6 @@ public class Player {
     @Column(name = "draft_club")
     private String draftClub;
 
-    public Player() {
-    }
-
     public Player(Long id, String team, String position, Integer jerseyNumber, String status, String firstName, String lastName, LocalDate birthDate, Integer height, Integer weight, String college, Integer yearsExp, Integer rookieYear, String draftClub) {
         this.id = id;
         this.team = team;
@@ -52,6 +49,10 @@ public class Player {
     }
 
     public Player(String name){
+    }
+
+    public Player(){
+
     }
 
     public Long getId() {
