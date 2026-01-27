@@ -34,6 +34,8 @@ public class PlayerControler {
             return playerService.getPlayersByTeamAndPosition(team, position);
         } else if (team != null ) {
             return playerService.getPlayersFromTeam(team);
+        } else if (firstName != null && lastName != null) {
+            return playerService.getPlayerByFirstAndLastName(firstName, lastName);
         } else if (firstName != null) {
             return playerService.getPlayersByName(firstName);
         } else if (lastName != null) {

@@ -37,6 +37,20 @@ public class PlayerService {
                 .collect(Collectors.toList());
     }
 
+    public List<Player> getPlayerByFirstAndLastName(String firstName, String lastName){
+        String f = firstName.toLowerCase();
+        String l = lastName.toLowerCase();
+        return playerRepository.findAll().stream()
+                .filter(player ->
+                        player.getFirstName() != null &&
+                                player.getLastName() != null &&
+                                player.getFirstName().toLowerCase().equals(f) &&
+                                player.getLastName().toLowerCase().equals(l)
+                )
+                .collect(Collectors.toList());
+
+    }
+
     public List<Player> getPlayersByPosition(String searchText){
         String q = searchText.toLowerCase();
         return playerRepository.findAll().stream()
