@@ -1,0 +1,366 @@
+:root {
+  --blue: #0b2a5b;
+  --blue-dark: #081f44;
+  --text: #111;
+  --muted: rgba(0, 0, 0, 0.6);
+  --border: rgba(255, 255, 255, 0.22);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  color: var(--text);
+  background: #f6f7fb;
+}
+
+.app { min-height: 100vh; }
+
+.topbar {
+  background: linear-gradient(0deg, var(--blue-dark), var(--blue));
+  color: #fff;
+  width: 100%;
+  position: relative;
+  z-index: 10;
+  padding: 12px 3% 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.topbarMain {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 0 0 auto;
+  min-width: 0;
+}
+
+.brandLogo {
+  height: clamp(34px, 4vh, 56px);
+  width: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.brandText {
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  font-size: clamp(16px, 1.2vw, 20px);
+  white-space: nowrap;
+}
+
+.searchbar,
+.searchWrap {
+  flex: 1;
+  width: auto;
+  max-width: 720px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+}
+
+.searchLabel {
+  font-size: 12px;
+  font-weight: 700;
+  opacity: 0.9;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  outline: none;
+  font-size: 14px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+.searchInput::placeholder {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.searchInput:focus {
+  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.buttonsWrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 4px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.buttonsWrap button {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  cursor: pointer;
+  transition: background 0.5s ease, transform 0.15s ease;
+}
+
+.buttonsWrap button:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-1px);
+}
+
+.buttonsWrap button:active {
+  transform: translateY(0);
+}
+
+.page {
+  padding: 22px;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.pageTitle {
+  margin: 0 0 6px;
+  color: var(--blue-dark);
+}
+
+.pageHint {
+  margin: 0;
+  color: var(--blue-dark);
+}
+
+.division {
+  margin-top: 40px;
+}
+
+.divisionTitle {
+  margin-bottom: 16px;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--blue-dark);
+}
+
+.teamsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+
+.teamCard {
+  background: #f9f9f9;
+  border-radius: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.teamCard img {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+}
+
+.teamCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+}
+
+.modalBackdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+}
+
+.modalCard {
+  width: min(900px, 95vw);
+  max-height: min(85vh, 900px);
+  background: white;
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.modalHeader {
+  padding: 14px 16px;
+  border-bottom: 1px solid #e5e7eb;
+  background: white;
+  display: grid;
+  grid-template-rows: auto auto;
+  row-gap: 10px;
+}
+
+.modalTeam {
+  display: grid;
+  grid-template-columns: 56px 1fr auto;
+  align-items: center;
+  column-gap: 12px;
+}
+
+.modalLogo {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+}
+
+.modalTitle {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.modalClose {
+  background: var(--blue-dark);
+  color: #fff;
+
+  border: none;
+  border-radius: 999px;
+
+  padding: 8px 14px;
+
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+}
+
+.modalClose:hover {
+  background: #0f3a7a;
+}
+
+
+.buttonsWraper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-left: 68px;
+}
+
+.buttonsWraper button {
+  background: #f2f4f8;
+  color: var(--blue-dark);
+  border: 1px solid #d1d5db;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+}
+
+.buttonsWraper button:hover {
+background: #0f3a7a;
+color: white;
+}
+
+.playerList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+}
+
+.playerRow {
+  display: grid;
+  grid-template-columns: 70px 70px 1fr 90px;
+  gap: 12px;
+  align-items: center;
+  padding: 12px 16px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.playerRow:nth-child(even) {
+  background: #fafafa;
+}
+
+.colNum, .colPos, .colStatus {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.colStatus {
+  text-align: right;
+  opacity: 0.8;
+}
+
+.colName .name {
+  font-weight: 700;
+}
+
+.colName .meta {
+  font-size: 12px;
+  opacity: 0.7;
+  margin-top: 2px;
+}
+
+@media (max-width: 900px) {
+  .teamsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+}
+
+@media (max-width: 720px) {
+  .topbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    padding: 14px 16px;
+  }
+
+  .searchbar,
+  .searchWrap {
+    max-width: none;
+    align-items: stretch;
+  }
+
+  .searchLabel {
+    text-align: left;
+  }
+
+  .modalTeam {
+    grid-template-columns: 40px 1fr auto;
+    column-gap: 10px;
+  }
+
+  .modalLogo {
+    width: 40px;
+    height: 40px;
+  }
+
+  .buttonsWraper {
+    padding-left: 50px;
+  }
+
+  .playerRow {
+    grid-template-columns: 60px 60px 1fr 70px;
+  }
+}
