@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-\restrict EhXnaYYl5Yl0xxNnU4Tz2eeJiR4GCR1gLXn9bBw5Ew3I6Sq75kdyUTnddjWQEPk
+\restrict y8oh6H284LkSdMBPJL6fOdcroaPOlhRyj8ZIGIkrX4cdFGRcKQK3GfY3reehnMG
 
 -- Dumped from database version 18.1 (Postgres.app)
 -- Dumped by pg_dump version 18.1 (Postgres.app)
@@ -69,6 +69,52 @@ ALTER SEQUENCE public.player_data_id_seq OWNED BY public.player_data.id;
 
 
 --
+-- Name: rosters_raw; Type: TABLE; Schema: public; Owner: antoniomajstorovic
+--
+
+CREATE TABLE public.rosters_raw (
+    season text,
+    team text,
+    "position" text,
+    depth_chart_position text,
+    jersey_number text,
+    status text,
+    full_name text,
+    first_name text,
+    last_name text,
+    birth_date text,
+    height text,
+    weight text,
+    college text,
+    gsis_id text,
+    espn_id text,
+    sportradar_id text,
+    yahoo_id text,
+    rotowire_id text,
+    pff_id text,
+    pfr_id text,
+    fantasy_data_id text,
+    sleeper_id text,
+    years_exp text,
+    headshot_url text,
+    ngs_position text,
+    week text,
+    game_type text,
+    status_description_abbr text,
+    football_name text,
+    esb_id text,
+    gsis_it_id text,
+    smart_id text,
+    entry_year text,
+    rookie_year text,
+    draft_club text,
+    draft_number text
+);
+
+
+ALTER TABLE public.rosters_raw OWNER TO antoniomajstorovic;
+
+--
 -- Name: player_data id; Type: DEFAULT; Schema: public; Owner: antoniomajstorovic
 --
 
@@ -87,5 +133,5 @@ ALTER TABLE ONLY public.player_data
 -- PostgreSQL database dump complete
 --
 
-
+\unrestrict y8oh6H284LkSdMBPJL6fOdcroaPOlhRyj8ZIGIkrX4cdFGRcKQK3GfY3reehnMG
 

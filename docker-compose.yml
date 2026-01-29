@@ -8,10 +8,11 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - nfl_pgdata:/var/lib/postgresql/data
+      - nfl_pgdata:/var/lib/postgresql
       - ./docker/init:/docker-entrypoint-initdb.d
 
   backend:
+    build: .
     image: nfl-backend
     depends_on:
       - db
@@ -21,6 +22,18 @@ services:
       SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/nfl_2025
       SPRING_DATASOURCE_USERNAME: antoniomajstorovic
       SPRING_DATASOURCE_PASSWORD: tisiglup
+
+  frontend:
+    build: ./frontend
+    depends_on:
+      - backend
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    environment:
+      - CHOKIDAR_USEPOLLING=true
 
 volumes:
   nfl_pgdata:
